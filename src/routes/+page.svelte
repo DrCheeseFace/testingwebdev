@@ -2,6 +2,16 @@
 	import Counter from './Counter.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import PocketBase from 'pocketbase';
+
+	const pb = new PocketBase('https://127.0.0.1:8090');
+	let resultList = 0 
+
+	async function getUsers(){
+		resultList = resultList += 1
+	}
+
+
 </script>
 
 <svelte:head>
@@ -20,6 +30,9 @@
 
 		to your new<br />SvelteKit app
 	</h1>
+	<button on:click={getUsers}>o(1) cookie clicker</button>
+
+	<h1>{resultList}</h1>
 
 	<h2>
 		try editing <strong>src/routes/+page.svelte</strong>
